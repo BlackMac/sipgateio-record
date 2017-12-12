@@ -3,6 +3,7 @@ const clientController = require("./controllers/client"),
       staticController = require("./controllers/static"),
       dashboardController = require("./controllers/dashboard"),
       phoneController = require("./controllers/phone"),
+      recordingsController = require("./controllers/recordings"),
       hooksController = require("./controllers/hooks"),
       statusController = require("./controllers/status"),
       numbersController = require("./controllers/numbers"),
@@ -11,6 +12,7 @@ const clientController = require("./controllers/client"),
 
 module.exports = (app) => {
     app.get('/', authMiddleware, dashboardController.get)
+    app.get('/recordings', authMiddleware, recordingsController.get)
     app.get('/clients', authMiddleware, clientController.get)
     app.get('/numbers', authMiddleware, numbersController.get)
     app.get('/hooks', authMiddleware, hooksController.get)

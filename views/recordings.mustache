@@ -1,0 +1,33 @@
+{{> header}}
+{{> menu}}
+
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-md-12">
+        <h3>Call Recordings</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Date & Time</th>
+                <th>Direction</th>
+                <th>Source</th>
+                <th>Target</th>
+                <th>Rec</th>
+            </tr>
+            {{#recordings}}
+                <tr>
+                  <td>{{#formatDate}}
+                    {{created}}
+                  {{/formatDate}}</td>
+                  <td>{{direction}}</td>
+                  <td>{{source}}</td>
+                  <td>{{target}}</td>
+                  <td style="font-size:20px;">
+                    {{#recordingUrl}}<a href="{{recordingUrl}}" target="_blank"><i class="ti-cloud-down"></i></a>{{/recordingUrl}}
+                    {{^recordingUrl}}<i class="ti-alert" style="color:red"></i>{{/recordingUrl}}
+                  </td>
+            {{/recordings}}
+        </table>
+        </div>
+    </div>
+</div>
+{{> footer}}

@@ -65,7 +65,7 @@ exports.getOpenCalls = (bearer) => {
 }
 
 exports.getHistory = (bearer) => {
-    return get('/v2/w3/history?offset=0&limit=1000', bearer)
+    return get('/v2/history?offset=0&types=CALL&limit=10&directions=INCOMING&directions=OUTGOING', bearer)
 }
 
 function request(method, url, querydata, bearer) {
