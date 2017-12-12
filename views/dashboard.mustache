@@ -6,8 +6,7 @@
         <div class="col-md-12">
         <h3>Dashboard</h3>
         <p>
-            This is the sipgate developer dashboard. You can use it to control all aspects of the sipgate.io REST API, sipgate.io phone
-                        and sipgate.io webhooks.
+            This is the io::record dashboard.
         </p>
         </div>
     </div>
@@ -15,7 +14,7 @@
         <div class="col-md-6">
             <div class="panel panel-default {{^apiClient}}panel-danger{{/apiClient}}">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Api Client</h3>
+                    <h3 class="panel-title">Latest Recordings</h3>
                 </div>
                 <div class="panel-body">
                 {{#apiClient}}
@@ -32,12 +31,6 @@
                     <a href="/clients" class="btn btn-primary">Create an API-Client</a>
                 {{/apiClient}}
                 </div>
-                <div class="panel-footer infofooter closed"><a href="javascript:" class="footer-toggle"><i class="ti-info-alt"></i> About this Box</a><br>
-                    <p>
-                    <h4>API Calls used</h4>
-                    <strong>GET</strong> /v2/authorization/oauth2/clients
-                    </p>
-                </div>
             </div>
         </div>
         <div class="col-md-6">
@@ -47,15 +40,7 @@
                 </div>
                 <div class="panel-body">
                     <span class="infolabel">Customer:</span> {{masterSipId}}-{{webuser}}-{{domain}}<br>
-                    <span class="infolabel">Product:</span> {{product}}<br>
-                    <span class="infolabel">Admin:</span> {{admin}}<br>
                     <span class="infolabel">Balance:</span> <span class="text-success">{{currency}}{{amount}}</span><br>
-                </div>
-                <div class="panel-footer infofooter closed"><a href="javascript:" class="footer-toggle"><i class="ti-info-alt"></i> About this Box</a><br>
-                    <p>
-                    <h4>API Calls used</h4>
-                    <strong>GET</strong> /v2/authorization/userinfo<br><strong>GET</strong> /v2/balance
-                    </p>
                 </div>
             </div>
         </div>
