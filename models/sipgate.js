@@ -95,6 +95,7 @@ function request(method, url, querydata, bearer) {
             headers['Content-Type'] = 'application/x-www-form-urlencoded'
         }
         if (bearer) {
+            headers['Content-Type'] = 'application/json'
             headers['Authorization'] = 'Bearer '+bearer
         }
 
