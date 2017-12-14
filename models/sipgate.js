@@ -64,13 +64,20 @@ exports.getOpenCalls = (bearer) => {
     return get('/v2/calls', bearer)
 }
 
+exports.startRecording = (bearer, callId) => {
+    const query = {
+        "announcement": false,
+        "value": true
+    }
+    return put('/v2/calls/'+callId+'/recording')
+}
+
 exports.getHistory = (bearer) => {
     return get('/v2/history?offset=0&types=CALL&limit=10&directions=INCOMING&directions=OUTGOING', bearer)
 }
 
 function request(method, url, querydata, bearer) {
     return new Promise((resolve, reject) => {
-        console.log(method, url, querydata, bearer)
         let queryuri
 
         if (!bearer) {
@@ -104,7 +111,6 @@ function request(method, url, querydata, bearer) {
             result.on('end', function () {
                 if (result.statusCode <200 || result.statusCode >299) {
                     const errorinfo = {"status_code":result.statusCode, "status_message": result.statusMessage, "response": rawData, "path": options.path, "method": options.method, "data":querydata}
-                    console.log(errorinfo, method, url, queryuri)
                     reject(errorinfo)
                 }
                 try {

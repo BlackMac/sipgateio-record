@@ -8,22 +8,17 @@ const clientController = require("./controllers/client"),
       statusController = require("./controllers/status"),
       numbersController = require("./controllers/numbers"),
       authMiddleware = require('./middleware/auth'),
-      domainMiddleware = require('./middleware/domain')
+      domainMiddleware = require('./middleware/domain'),
+      recordhookController  = require("./controllers/recordhook")
 
 module.exports = (app) => {
     app.get('/', authMiddleware, dashboardController.get)
     app.get('/recordings', authMiddleware, recordingsController.get)
-    app.get('/clients', authMiddleware, clientController.get)
-    app.get('/numbers', authMiddleware, numbersController.get)
     app.get('/hooks', authMiddleware, hooksController.get)
-    app.post('/hooks', authMiddleware, hooksController.post)
-    app.get('/hooks/multi', authMiddleware, hooksController.getMulti)
-    app.get('/hooks/multi/enable', authMiddleware, hooksController.enableMulti)
-    app.get('/phone', authMiddleware, phoneController.get)
-    app.get('/status', authMiddleware, statusController.get)
+    app.get('/hooks/record/enable', authMiddleware, hooksController.enableRecord)
     app.get('/login', loginController.get)
     app.get('/login/oauth', loginController.authenticate)
     app.get('/static/:filename', staticController.get)
-    app.post('/client/add', clientController.post)
+    app.post('/record/:token', recordhookController.post)
     app.get('/client/delete/:clientid', clientController.delete)
 }

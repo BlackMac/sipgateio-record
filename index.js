@@ -34,5 +34,5 @@ router(app)
 var port = process.env.PORT || 4000;
 
 server.listen(port, function () {
-    console.log('sndbx.net listening on port '+port)
+    console.log('listening on port '+port)
 })

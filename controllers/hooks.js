@@ -60,3 +60,19 @@ exports.enableMulti = (req, res) => {
 
     }))
 }
+
+exports.enableRecord = (req, res) => {
+    storage.init()
+    .then(sipgate.getWebhookUrls(req.session.bearer)
+    .then((hookinfo) => {
+        storage.setItem(md5(config.push_salt+req.session.masterSipId),{control: hookinfo}).then(() => {
+            storage.getItem(md5(config.push_salt+req.session.masterSipId)).then((item) => {
+                let hookEndpoint = req.protocol + '://' + req.get('host') + "/record/" + md5(config.push_salt+req.session.masterSipId)
+                sipgate.setWebhookURLs(hookEndpoint, hookEndpoint, req.session.bearer).then(() => {
+                    res.redirect("/")
+                })
+            })
+        })
+
+    }))
+}

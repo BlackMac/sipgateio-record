@@ -8,5 +8,5 @@ If you do not want to install it on your own server you can use the hosted versi
 
 ```
 npm install
-CLIENT_ID=[YOUR_CLIENT_ID];CLIENT_SECRET=[YOUR_CLIENT_SECRET];node index.js
+CLIENT_ID=[YOUR_CLIENT_ID] CLIENT_SECRET=[YOUR_CLIENT_SECRET] node index.js
 ```

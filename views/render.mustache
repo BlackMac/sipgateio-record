@@ -33,15 +33,14 @@
                         incomingUrl:pushuri,
                         outgoingUrl:pushuri
                     }, (result) => {
-                        console.log(result)
                         var socket = io(socketuri)
                         console.log("listening for pushes on "+pushuri)
                         socket.on('sipgateio', (data) => {
                             callback(data)
-                        }); 
+                        });
                     })
 
-                    
+
                 },
 
                 get: (url, callback) => {

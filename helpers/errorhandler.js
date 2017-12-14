@@ -5,6 +5,7 @@ exports.api = (req, res, e) => {
         error: e,
         page: req.path
     }
+    console.warn(incidentinfo);
     res.render('error',{
         error: JSON.stringify(incidentinfo, null, "  ")
     })
