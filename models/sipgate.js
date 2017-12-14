@@ -69,7 +69,7 @@ exports.startRecording = (bearer, callId) => {
         "announcement": false,
         "value": true
     }
-    return put('/v2/calls/'+callId+'/recording')
+    return put('/v2/calls/'+callId+'/recording', query, bearer)
 }
 
 exports.getHistory = (bearer) => {
