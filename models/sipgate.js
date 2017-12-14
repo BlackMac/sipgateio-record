@@ -73,7 +73,7 @@ exports.startRecording = (bearer, callId) => {
 }
 
 exports.getHistory = (bearer) => {
-    return get('/v1/w4/history?offset=0&types=CALL&limit=10&directions=INCOMING&directions=OUTGOING', bearer)
+    return get('/v2/history?offset=0&types=CALL&limit=10&directions=INCOMING&directions=OUTGOING', bearer)
 }
 
 function request(method, url, querydata, bearer) {
